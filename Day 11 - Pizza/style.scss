@@ -1,0 +1,95 @@
+$triangle: polygon(50% 100%, 0 0, 100% 0);
+
+$crust-index: 2;
+$cheese-index: 1;
+
+$sauce-orange: #FFCA51;
+$cheese-orange: lighten($sauce-orange, 10%);
+$pep-red: #F44242;
+$crust-brown: #875D3B;
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+  position: absolute;
+}
+
+@mixin pos($left, $top) {
+  top: $top;
+  left: $left;
+}
+
+@mixin posL($top, $right) {
+  top: $top;
+  right: $right;
+}
+
+.box {
+  @include size(80vw, 60vw);
+  position: relative;
+  margin: auto;
+  margin-top: 10%;
+  border: 1px solid black;
+}
+
+.pizza {
+  @include size(50%, 70%);
+  -webkit-clip-path: $triangle;
+  background: $sauce-orange;
+  @include pos(25%, 15%);
+  z-index: 0;
+  overflow:hidden;
+
+
+
+  .crust {
+    @include size(100%, 10%);
+    background: $crust-brown;
+    z-index: $crust-index;
+
+    &:before {
+      content: "";
+      @include size(100%, 30%);
+      bottom: 0%;
+      background: linear-gradient(to bottom, $crust-brown, lighten($crust-brown, 10%));
+    }
+  }
+
+  .cheese {
+    @include size(80%, 80%);
+    @include pos(10%, 11%);
+    -webkit-clip-path: $triangle;
+    background: $cheese-orange;
+    z-index: $cheese-index;
+  }
+
+  .pep {
+    @include size(20%, 20%);
+    background: green;
+    border-radius: 50%;
+    z-index: 3;
+    background-color: $pep-red;
+
+    &:nth-child(3) {
+      @include pos(20%, 10%);
+    }
+
+    &:nth-child(4) {
+      @include pos(35%, 60%);
+    }
+
+    &:nth-child(5) {
+      @include pos(60%, 30%);
+    }
+  }
+}
+
+@keyframes shrink {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.5);
+  }
+}
