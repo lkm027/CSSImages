@@ -1,7 +1,9 @@
 $triangle: polygon(50% 100%, 0 0, 100% 0);
 
-$crust-index: 2;
-$cheese-index: 1;
+$crust-index: 3;
+$cheese-index: 2;
+$pizza-index: 1;
+$splatter-index: 0;
 
 $sauce-orange: #FFCA51;
 $cheese-orange: lighten($sauce-orange, 10%);
@@ -19,17 +21,49 @@ $crust-brown: #875D3B;
   left: $left;
 }
 
-@mixin posL($top, $right) {
+@mixin posR($right, $top) {
   top: $top;
   right: $right;
 }
 
+.antenna {
+  @include size(10%, 50%);
+  border-radius: 10%;
+  background-color: black;
+}
+
+#day {
+  font-family: Pacifico;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 300%;
+  background: -webkit-linear-gradient(right, $sauce-orange, $pep-red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  animation: fadeIn 2s linear 3s 1 forwards;
+}
+
+#pizzaText {
+  font-family: Pacifico;
+  position: absolute;
+  width: 100%;
+  top: 10%;
+  text-align: center;
+  font-size: 300%;
+  background: -webkit-linear-gradient(right, $sauce-orange, $pep-red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    animation: fadeIn 2s linear 3s 1 forwards;
+}
+
 .box {
-  @include size(80vw, 60vw);
+  @include size(800px, 600px);
   position: relative;
   margin: auto;
-  margin-top: 10%;
-  border: 1px solid black;
+  margin-top: 5%;
 }
 
 .pizza {
@@ -37,9 +71,9 @@ $crust-brown: #875D3B;
   -webkit-clip-path: $triangle;
   background: $sauce-orange;
   @include pos(25%, 15%);
-  z-index: 0;
+  z-index: $pizza-index;
   overflow:hidden;
-
+  animation: shrink 1.5s ease-in 0s 1 forwards;
 
 
   .crust {
@@ -67,7 +101,7 @@ $crust-brown: #875D3B;
     @include size(20%, 20%);
     background: green;
     border-radius: 50%;
-    z-index: 3;
+    z-index: 4;
     background-color: $pep-red;
 
     &:nth-child(3) {
@@ -84,12 +118,133 @@ $crust-brown: #875D3B;
   }
 }
 
-@keyframes shrink {
-  0% {
-    transform: scale(1);
+.splatter {
+    @include size(25%, 35%);
+    @include pos(37.5%, 32.5%);
+    z-index: $splatter-index;
+    animation: appear 2s ease-in 0s 1 forwards;
+
+    .left {
+      @include size(50%, 30%);
+      background: $cheese-orange;
+      border-radius: 50%;
+      @include pos(15%, 30%);
+      transform: rotate(70deg);
+    }
+
+    .right {
+      @include size(50%, 30%);
+      background-color: $cheese-orange;
+      border-radius: 50%;
+      @include pos(30%, 30%);
+      transform: rotate(-70deg);
+    }
+
+    .bot{
+      @include size(30%, 40%);
+      background-color: $cheese-orange;
+      border-radius: 50%;
+      @include pos(35%, 40%);
+
+    }
+}
+
+.bug {
+  @include size(2.5%,4%);
+  position: relative;
+  opacity: 0;
+  animation: bug1Move 2s linear 2s 1 forwards;
+
+
+  .body {
+    @include size(50%, 60%);
+    border-radius: 50%;
+    background-color: black;
+    @include pos(25%, 40%);
   }
 
-  100% {
-    transform: scale(0.5);
+  .head {
+    @include size(35%, 30%);
+    border-radius: 50%;
+    background-color: black;
+    @include pos(32.5%, 30%);
+
+    .left-antenna {
+      @extend .antenna;
+      @include pos(10%, -30%);
+      transform: rotate(-30deg);
+    }
+
+    .right-antenna {
+      @extend .antenna;
+      @include posR(10%, -30%);
+      transform: rotate(30deg);
+    }
   }
+
+}
+
+.bug2 {
+  @extend .bug;
+  animation: bug2Move 2s linear 2s 1 forwards;
+}
+
+@keyframes shrink {
+    from {
+        transform: scale(1);
+        background-color: $sauce-orange;
+    }
+
+    to {
+        transform: scale(0.3);
+        background-color: $cheese-orange;
+    }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0.0;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 1.0;
+    transform: scale(1);
+  }
+}
+
+@keyframes bug1Move {
+  from {
+    transform: translate(0px, 600px) rotate(40deg);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate(300px, 340px) rotate(40deg);
+    opacity: 1;
+  }
+}
+
+@keyframes bug2Move {
+  from {
+    transform: translate(800px, 100px) rotate(-110deg);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate(500px, 225px) rotate(-110deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
 }
