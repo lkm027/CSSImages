@@ -1,0 +1,182 @@
+//colors
+$meat-red: #9E1F2C;
+$bun-yellow: #DBB253;
+$cheese-yellow: #F2BB05;
+$lettuce-green: #436436;
+
+//indices
+$top-bun-index: 2;
+$meat-index: 1;
+$bot-bun-index: 2;
+$cheese-index: 3;
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+//mixins
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+  position: absolute;
+}
+
+@mixin posL($left, $top) {
+  left: $left;
+  top: $top;
+}
+
+@mixin posR($right, $top) {
+  right: $right;
+  top: $top;
+}
+
+.eye {
+  @include size(20%, 40%);
+  border-radius: 50%/ 40%;
+  background: black;
+}
+
+.box {
+  @include size(800px, 600px);
+  border: 1px solid black;
+  position: relative;
+  margin: auto;
+}
+
+.burger {
+  @include size(70%, 70%);
+  border: 1px solid black;
+
+  .top-bun {
+    @include size(40%, 20%);
+    background-color: $bun-yellow;
+    border-radius: 100% 100% 10% 10%;
+    z-index: $top-bun-index;
+    @include posL(10%, 0);
+
+    &:before {
+      content:"";
+      @include size(90%, 80%);
+      background-color: lighten($bun-yellow, 20%);
+      border-radius:  100% 100% 10% 10%;
+      opacity: 0.25;
+      box-shadow: 0px 0px 20px lighten($bun-yellow, 40%);
+      @include posL(5%, 10%);
+    }
+
+    .face {
+      @include size(40%, 70%);
+      @include posL(30%, 20%);
+
+      .eye-left {
+        @extend .eye;
+        @include posL(20%, 0);
+      }
+
+      .eye-right {
+        @extend .eye;
+        @include posR(20%, 0);
+      }
+
+      .mouth {
+        @include size(50%, 50%);
+        background-color: black;
+        border-radius: 0 0 50% 50%;
+        bottom: 0%;
+        left: 25%;
+        overflow: hidden;
+
+        .tongue {
+          @include size(70%, 50%);
+          bottom: 0%;
+          left: 0%;
+          border-radius: 0 100% 0 0;
+          background-color: red;
+
+          &:before {
+            content: "";
+            @include size(60%, 60%);
+            border-radius: 0 100% 0 0;
+            background-color: lighten(red, 30%);
+            opacity: 0.5;
+            box-shadow: 0px 0px 20px lighten(red, 30%);
+            bottom: 0%;
+          }
+        }
+      }
+    }
+  }
+
+  .meat {
+    @include size(40%, 5%);
+    background: lighten($meat-red, 20%);
+    border-radius: 10%/20%;
+    @include posL(10%, 20%);
+    box-shadow: inset 0px 0px 10px lighten($meat-red, 10%);
+
+    .cheese {
+      @include size(95%, 20%);
+      background: $cheese-yellow;
+      @include posL(2.5%, 0);
+      border-radius: 0 0 50% 50%;
+    }
+
+    .cheese-triangle {
+      clip-path: polygon(0 0, 50% 100%, 100% 0);
+      @include size(30%, 70%);
+      background: $cheese-yellow;
+      @include posR(10%, 15%);
+      z-index: $cheese-index;
+
+      &:before {
+        content: "";
+        clip-path: polygon(0 0, 50% 100%, 100% 0);
+        @include size(60%, 60%);
+        @include posL(20%, 10%);
+        // background-color: lighten($cheese-yellow, 20%);
+        background: linear-gradient(to right, $cheese-yellow,
+              lighten($cheese-yellow, 20%), $cheese-yellow);
+        opacity: 0.25;
+      }
+    }
+  }
+
+  .bot-bun {
+    @include size(40%, 10%);
+    background-color: $bun-yellow;
+    border-radius: 5% 5% 20% 20%;
+    @include posL(10% ,25%);
+
+
+    &:before {
+      content:"";
+      @include size(90%, 70%);
+      background-color: lighten($bun-yellow, 20%);
+      border-radius:  10% 10% 40% 40%;
+      opacity: 0.25;
+      box-shadow: 0px 0px 20px lighten($bun-yellow, 40%);
+      @include posL(5%, 10%);
+    }
+
+    .lettuce {
+      @include size(34%, 20%);
+      background: linear-gradient(to top, lighten($lettuce-green, 20%) 40%, $lettuce-green);
+      border-radius: 0 0 50% 50%;
+      top: -10%;
+      // border-bottom: 2px solid $lettuce-green;
+
+      &:nth-child(2) {
+        left: 33%;
+        width: 33%;
+      }
+      &:nth-child(3) {
+        left: 66%;
+      }
+    }
+  }
+}
