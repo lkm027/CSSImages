@@ -1,0 +1,130 @@
+//colors
+$orange-shell: #FCC264;
+
+
+//mixins
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+  position: absolute;
+}
+
+@mixin pos($left, $top) {
+  left: $left;
+  top: $top;
+}
+
+@mixin posR($right, $top) {
+  right: $right;
+  top: $top;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#text {
+  font-family: Mogra;
+  font-size: 56px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: $orange-shell;
+}
+
+.box {
+  @include size(800px, 600px);
+  margin: auto;
+  position: relative;
+  margin-top: 5%;
+}
+
+.taco {
+  @include size(80%, 80%);
+  @include pos(10%, 10%);
+
+  .shell {
+    @include size(600px, 300px);
+    border-radius: 300px 300px 0 0;
+    position: relative;
+    margin:  auto;
+    margin-top: 25%;
+    background-color: $orange-shell;
+
+    &:before {
+      content: "";
+      @include size(550px, 280px);
+      border-radius:340px 300px 30px 30px;
+      background: lighten($orange-shell, 20%);
+      @include pos(4%, 5%);
+      opacity: 0.25;
+      box-shadow: 0px 0px 50px lighten($orange-shell, 20%);
+
+    }
+
+    .tom {
+      @include size(20%, 40%);
+      background: red;
+      border-radius: 50%;
+      z-index: -1;
+
+      &:before {
+        content: "";
+        @include size(80%, 80%);
+        @include pos(10%, 10%);
+        border-radius: 50%;
+        background: lighten(red, 20%);
+        opacity: 0.75;
+        box-shadow: 0px 0px 10px lighten(red, 20%);
+      }
+
+      &:first-child {
+        top: 50%;
+      }
+
+      &:nth-child(2) {
+        left: 20%;
+      }
+
+      &:nth-child(3) {
+        right: 20%;
+      }
+
+      &:nth-child(4) {
+        right: 0%;
+        top: 50%;
+      }
+    }
+
+    .let {
+      @include size(40%, 70%);
+      background: green;
+      border-radius: 50%;
+      z-index: -2;
+
+      &:before {
+        content: "";
+        @include size(80%, 80%);
+        @include pos(10%, 10%);
+        border-radius: 50%;
+        background: lighten(green, 20%);
+        opacity: 0.25;
+        box-shadow: 0px 0px 50px lighten(green, 20%);
+      }
+
+      &:nth-child(5) {
+        left: 5%;
+        top: 10%;
+      }
+
+      &:nth-child(6) {
+        left:30%;
+        top: -10%;
+      }
+      &:nth-child(7) {
+        right: 5%;
+        top:10%;
+      }
+    }
+  }
+}
