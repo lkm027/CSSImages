@@ -1,0 +1,161 @@
+//colors
+$tan-cheese: #FFE9E0;
+
+//
+$cheese-left: 20%;
+$cheese-top: 30%;
+
+
+
+//mixins
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+  position: absolute;
+}
+
+@mixin pos($left, $top) {
+  left: $left;
+  top: $top;
+}
+
+@mixin posR($right, $top) {
+  right: $right;
+  top: $top;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.cut {
+  @include size(0.5%, 130%);
+  background: lighten(red, 20%);
+  @include pos(49.75%, 50%);
+  transform-origin: center top;
+  box-shadow: 0px 0px 20px darken(red, 10%);
+}
+
+.eye {
+  @include size(10%, 25%);
+  background-color: black;
+  border-radius: 50% 50% 10% 10%;
+}
+
+#text {
+  font-family: Mogra;
+  font-size: 56px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: darken($tan-cheese, 10%);
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
+}
+
+.box {
+  @include size(800px, 600px);
+  position: relative;
+  margin: auto;
+  margin-top: 5%;
+}
+
+.cake-top {
+  @include size(60%, 40%);
+  background-color: $tan-cheese;
+  border-radius: 50%;
+  z-index:2;
+  @include pos($cheese-left, $cheese-top);
+  border: 3px solid black;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    @include size(50%, 70%);
+    border-radius: 50%;
+    background-color: darken($tan-cheese, 10%);
+    opacity: 0.5;
+    @include pos(5%, 10%);
+    box-shadow: 0px 0px 50px darken($tan-cheese, 20%);
+  }
+
+  .cut-left {
+    @extend .cut;
+    transform: rotate(-60deg);
+  }
+
+  .cut-right {
+    @extend .cut;
+    transform: rotate(-80deg);
+  }
+
+  .eye-left {
+    @extend .eye;
+    @include pos(16%, 15%);
+    transform: skewX(20deg);
+  }
+
+  .eye-right {
+    @extend .eye;
+    @include pos(36%, 15%);
+    transform: skewX(20deg);
+  }
+
+  .mouth {
+    @include size(30%, 25%);
+    background-color: black;
+    border-radius: 50% 50% 10% 10%;
+    @include pos(16%, 45%);
+    transform: skewX(20deg);
+  }
+
+}
+
+.cake-bot {
+  @include size(60%, 48%);
+  background: linear-gradient(to right, $tan-cheese 70%, darken($tan-cheese, 5%), $tan-cheese);
+  border: 3px solid black;
+  border-radius: 50% 50% 45% 45%;
+  @include pos($cheese-left, $cheese-top);
+  overflow: hidden;
+  z-index: 1;
+
+  .cut-left {
+    @include size(0.5%, 100%);
+    background: lighten(red, 20%);
+    right: 17%;
+    box-shadow: 0px 0px 10px darken(red, 10%);
+  }
+
+  .cut-right {
+    @include size(0.5%, 100%);
+    background-color: lighten(red, 20%);
+    right: 2.2%;
+    box-shadow: 0px 0px 10px darken(red, 10%);
+  }
+}
+
+
+.puddle-left {
+  @include size(20%, 30%);
+  background: lighten(red, 20%);
+  border-radius: 50%;
+  @include pos(55%, 45%);
+  transform: skewY(30deg);
+}
+
+.puddle-right {
+  @include size(20%, 30%);
+  background: lighten(red, 20%);
+  border-radius: 50%;
+  @include pos(60%, 40%);
+  transform: skewY(30deg);
+}
+
+.puddle-center {
+  @include size(15%, 30%);
+  background: lighten(red, 20%);
+  border-radius: 50%;
+  @include pos(64%, 47.5%);
+  transform: skewY(30deg) rotate(10deg);
+}
