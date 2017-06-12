@@ -1,0 +1,27 @@
+//mixins
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+  position: absolute;
+}
+
+@mixin pos($left, $top) {
+  left: $left;
+  top: $top;
+}
+
+@mixin posR($right, $top) {
+  right: $right;
+  top: $top;
+}
+
+@mixin triangle($top, $right, $bot, $left) {
+  border-top: $top;
+  border-right: $right;
+  border-bottom: $bot;
+  border-left: $left;
+}
+
+* {
+  box-sizing: border-box;
+}
