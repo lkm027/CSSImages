@@ -1,13 +1,19 @@
 @import '../presets';
+@import url('https://fonts.googleapis.com/css?family=Cinzel:900');
 
-.stretch {
-  &:before {
-    content:"";
-    @include size(90%, 100%);
-    @include pos(5%, 0%);
-    background: red;
-    border-radius: 40%;
-  }
+//colors
+$red-dog: #F03A47;
+$tan-bun: #F6C463;
+$green-dog: #309327;
+$dog-shadow: 0px 0px 5px lighten(black,30%);
+
+
+.eye {
+  @include size(30%, 5%);
+  background: darken(white, 10%);
+  border-radius: 0 0 50% 50%;
+  border: 2px solid black;
+  box-shadow: $dog-shadow
 }
 
 .box {
@@ -15,15 +21,26 @@
   position: relative;
   margin: auto;
   margin-top: 5%;
-  border: 1px solid black;
+
+  #text {
+    @include size(100%, 100%);
+    text-align: center;
+    font-family: Cinzel;
+    font-size: 26pt;
+    top: 5%;
+    color: $green-dog;
+    text-shadow: 1px 1px 5px lighten(black, 30%);
+  }
 }
 
 .frank {
   @include size(10%, 70%);
-  @include pos(40%, 15%);
-  background: red;
+  @include pos(45%, 25%);
+  background: $green-dog;
   border-radius: 40%/10%;
   overflow: hidden;
+  z-index: 1;
+  box-shadow: inset 0px 0px 15px black;
 
   .stretch-bot {
     @include size(70%, 10%);
@@ -36,14 +53,14 @@
       content:"";
       @include size(90%, 100%);
       @include pos(5%, 0%);
-      background: red;
+      background: $green-dog;
       border-radius:40%;
     }
 
     &:after {
       content: "";
       @include size(100%, 70%);
-      background: red;
+      background: $green-dog;
       bottom: 50%;
     }
   }
@@ -60,14 +77,14 @@
       content:"";
       @include size(90%, 100%);
       @include pos(5%, 0%);
-      background: red;
+      background: $green-dog;
       border-radius: 30%;
     }
 
     &:after {
       content: "";
       @include size(100%, 70%);
-      background: red;
+      background: $green-dog;
       bottom: 30%;
     }
   }
@@ -82,5 +99,97 @@
     @extend .stretch-bot2;
     transform: scaleY(-1);
     top:0%;
+  }
+
+  .eye-left {
+    @extend .eye;
+    @include pos(10%, 20%);
+    transform: rotate(-5deg);
+  }
+
+  .eye-right {
+    @extend .eye;
+    @include posR(10%, 20%);
+    transform: rotate(5deg);
+  }
+
+  .mouth-open {
+    @include size(30%, 2%);
+    @include pos(55%, 30%);
+    background: black;
+    border-radius: 50% 50% 0 0;
+    box-shadow: $dog-shadow
+  }
+
+  .scar {
+    @include size(80%, 50%);
+    @include pos(10%, 40%);
+
+    .vert {
+      @include size(10%, 90%);
+      @include pos(45%, 5%);
+      background: black;
+      box-shadow: $dog-shadow;
+
+    }
+
+    .hor {
+      @include size(70%, 2.5%);
+      left: 15%;
+      background: black;
+      box-shadow: $dog-shadow;
+
+      &:nth-child(2) {
+        top: 20%;
+      }
+
+      &:nth-child(3) {
+        top: 40%;
+      }
+
+      &:nth-child(4) {
+        bottom: 40%;
+      }
+
+      &:nth-child(5) {
+        bottom: 20%;
+      }
+    }
+  }
+
+}
+
+.bun-left {
+  @include size(12%, 72%);
+  @include pos(40%, 24%);
+  border-radius: 50% 10% 10% 50%;
+  background: $tan-bun;
+
+  &:before {
+    content:"";
+    @include size(30%, 95%);
+    @include pos(30%,2.5%);
+    background: darken($tan-bun, 30%);
+    border-radius: 100% 0% 0% 100%;
+    opacity: 0.5;
+    box-shadow: 0px 5px 20px darken($tan-bun, 30%), 0px -5px 20px darken($tan-bun, 30%);
+  }
+}
+
+
+.bun-right {
+  @include size(12%, 72%);
+  @include posR(40%, 24%);
+  border-radius: 10% 50% 50% 10%;
+  background: $tan-bun;
+
+  &:before {
+    content:"";
+    @include size(30%, 95%);
+    @include posR(30%,2.5%);
+    background: darken($tan-bun, 30%);
+    border-radius: 0% 100% 100% 0%;
+    opacity: 0.5;
+    box-shadow: 0px 5px 20px darken($tan-bun, 30%), 0px -5px 20px darken($tan-bun, 30%);
   }
 }
