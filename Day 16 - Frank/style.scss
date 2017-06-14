@@ -1,0 +1,86 @@
+@import '../presets';
+
+.stretch {
+  &:before {
+    content:"";
+    @include size(90%, 100%);
+    @include pos(5%, 0%);
+    background: red;
+    border-radius: 40%;
+  }
+}
+
+.box {
+  @include size(800px, 600px);
+  position: relative;
+  margin: auto;
+  margin-top: 5%;
+  border: 1px solid black;
+}
+
+.frank {
+  @include size(10%, 70%);
+  @include pos(40%, 15%);
+  background: red;
+  border-radius: 40%/10%;
+  overflow: hidden;
+
+  .stretch-bot {
+    @include size(70%, 10%);
+    bottom: 0%;
+    background: black;
+    left: 15%;
+    border-radius: 50%;
+
+    &:before {
+      content:"";
+      @include size(90%, 100%);
+      @include pos(5%, 0%);
+      background: red;
+      border-radius:40%;
+    }
+
+    &:after {
+      content: "";
+      @include size(100%, 70%);
+      background: red;
+      bottom: 50%;
+    }
+  }
+
+  .stretch-bot2 {
+    @include size(30%, 10%);
+    bottom: 0%;
+    background: black;
+    left: 35%;
+    border-radius: 40%;
+
+
+    &:before {
+      content:"";
+      @include size(90%, 100%);
+      @include pos(5%, 0%);
+      background: red;
+      border-radius: 30%;
+    }
+
+    &:after {
+      content: "";
+      @include size(100%, 70%);
+      background: red;
+      bottom: 30%;
+    }
+  }
+
+  .stretch-top {
+    @extend .stretch-bot;
+    transform: scaleY(-1);
+    top:0%;
+  }
+
+  .stretch-top2 {
+    @extend .stretch-bot2;
+    transform: scaleY(-1);
+    top:0%;
+  }
+}
