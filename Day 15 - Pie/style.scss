@@ -16,7 +16,7 @@ $red-text: #ED4040;
     @include size(100%, 100%);
 
     &:before {
-      content: "Definition of Pie:";
+      content: "Definition of Pi:";
       @include size(20%, 20%);
       font-family: serif;
       font-weight: bold;
@@ -36,7 +36,7 @@ $red-text: #ED4040;
   }
 
   &:after {
-    content:"#DailyCSSImages 15 - Pie";
+    content:"#DailyCSSImages 15 - Pi";
     @include size(100%, 10%);
     text-align: center;
     font-family: Mogra;
