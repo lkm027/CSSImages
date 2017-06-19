@@ -1,0 +1,60 @@
+@import '../presets';
+
+//colors
+$green-skin: #878E76;
+
+.box {
+  @include size(600px, 600px);
+  position: relative;
+  margin: auto;
+  margin-top: 5%;
+  border: 1px solid black;
+}
+
+.sign {
+  @include size(80%, 80%);
+  @include pos(10%, 10%);
+  border-radius: 50%;
+  background: yellow;
+  border: 5px solid black;
+}
+
+.zombie {
+  @include size(70%, 70%);
+  border: 1px solid black;
+  @include pos(15%, 15%);
+
+  .chin {
+    @include size(38%, 28%);
+    @include pos(31%, 46%);
+    background: $green-skin;
+    border-radius: 0 0 35% 35%;
+  }
+
+  .forehead {
+    @include size(58%, 38%);
+    @include pos(21%, 21%);
+    background: $green-skin;
+    border-radius: 50%;
+  }
+  }
+
+  .zombie-shadow {
+    @extend .zombie;
+
+    .chin-shadow {
+      @extend .chin;
+      @include size(40%, 30%);
+      @include pos(30%, 45%);
+      border: 5px solid darken($green-skin, 20%);
+      // opacity: 0.5;
+
+    }
+
+    .forehead-shadow {
+      @extend .forehead;
+      @include size(60%, 40%);
+      @include pos(20%, 20%);
+      border: 5px solid darken($green-skin, 20%);
+    }
+}
