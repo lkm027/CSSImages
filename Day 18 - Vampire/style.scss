@@ -1,0 +1,106 @@
+@import "../presets";
+@import url('https://fonts.googleapis.com/css?family=Cinzel:900');
+
+
+//colors
+$blue-water: #96CDFF;
+
+
+//Z-index
+$tooth-index: 1;
+$gap-index: 2;
+
+.box {
+  @include size(600px, 600px);
+  position: relative;
+  margin: auto;
+  margin-top: 5%;
+  
+  #text {
+    @include size(100%, 100%);
+    text-align: center;
+    font-family: Cinzel;
+    font-size: 26pt;
+    top: 5%;
+    color: $blue-water;
+    text-shadow: 1px 1px 5px darken(black, 50%);
+  }
+
+}
+
+.glass {
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+  @include size(40%, 60%);
+  background: black;
+  @include pos(30%, 30%);
+
+
+  &:before {
+    content: "";
+    @include size(90%, 90%);
+    @include pos(5%, 5%);
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+    background: $blue-water;
+  }
+}
+
+.teeth {
+  @include size(30%, 15%);
+  @include pos(35%, 60%);
+  background: black;
+  border-radius: 50%/ 25%;
+  transform: rotate(-70deg);
+
+
+
+  .gap-top {
+    content:"";
+    @include size(100%, 30%);
+    @include pos(0%, 0%);
+    background: $blue-water;
+    border-radius: 0 0 100% 100%;
+    z-index: $gap-index;
+  }
+
+  .gap-bot {
+    content:"";
+    @include size(100%, 30%);
+    bottom: 0%;
+    background: $blue-water;
+    border-radius: 100% 100% 0 0;
+  }
+
+  .gap {
+    @include size(100%, 20%);
+    @include pos(0%, 40%);
+    background: $blue-water;
+    border-radius: 25%/ 50%;
+  }
+
+  .tooth {
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    background: black;
+    @include size(10%, 50%);
+    z-index: $tooth-index;
+
+
+    &:nth-child(1) {
+      @include pos(15%, 20%);
+      box-shadow: inset 5px -2.5px 5px lighten(black, 50%);
+    }
+    &:nth-child(2) {
+      @include posR(15%, 20%);
+      box-shadow: inset -5px -2.5px 5px lighten(black, 50%);
+
+    }
+
+  }
+  .left {
+    left: 0%;
+  }
+
+  .top {
+    top: 30%;
+  }
+
+}
