@@ -1,14 +1,25 @@
 @import '../presets';
+@import url('https://fonts.googleapis.com/css?family=Cinzel:900');
 
 //colors
 $green-skin: #878E76;
+$pink-eye: #FAE0EB;
 
 .box {
   @include size(600px, 600px);
   position: relative;
   margin: auto;
   margin-top: 5%;
-  border: 1px solid black;
+
+  #text {
+    @include size(100%, 100%);
+    text-align: center;
+    font-family: Cinzel;
+    font-size: 26pt;
+    top: 0%;
+    color: $green-skin;
+    text-shadow: 1px 1px 5px darken($pink-eye, 50%);
+  }
 }
 
 .sign {
@@ -17,11 +28,11 @@ $green-skin: #878E76;
   border-radius: 50%;
   background: yellow;
   border: 5px solid black;
+  animation: rotate 10s ease-in-out 0s infinite;
 }
 
 .zombie {
   @include size(70%, 70%);
-  border: 1px solid black;
   @include pos(15%, 15%);
 
   .chin {
@@ -29,6 +40,59 @@ $green-skin: #878E76;
     @include pos(31%, 46%);
     background: $green-skin;
     border-radius: 0 0 35% 35%;
+
+    .nose {
+      @include size(10%, 10%);
+      background: darken($green-skin, 30%);
+      border-radius: 50%;
+
+      &:nth-child(1) {
+        @include pos(35%, 20%);
+      }
+
+      &:nth-child(2) {
+        @include pos(55%, 20%);
+      }
+    }
+
+    .mouth {
+      @include size(50%, 40%);
+      background: black;
+      border-radius: 40%/ 50%;
+      bottom: 20%;
+      left: 30%;
+      overflow: hidden;
+
+      .tooth {
+        @include size(30%, 30%);
+
+        background: white;
+
+        &:nth-child(1) {
+          @include pos(0%, 0%);
+          @include size(50%, 30%);
+        }
+
+        &:nth-child(2) {
+          @include size(100%, 30%);
+          bottom: 0%;
+        }
+
+        &:nth-child(3) {
+          @include posR(5%, 0);
+          @include size(30%, 30%);
+        }
+      }
+    }
+  }
+
+  .cross {
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+    background: red;
+    @include size(75%, 75%);
+    opacity: 0.5;
+    @include pos(12.5%, 12.5%);
+    z-index: 1;
   }
 
   .forehead {
@@ -36,6 +100,54 @@ $green-skin: #878E76;
     @include pos(21%, 21%);
     background: $green-skin;
     border-radius: 50%;
+    overflow: hidden;
+
+    .crack-1 {
+      clip-path: polygon(40% 0, 37% 49%, 59% 59%, 89% 85%, 71% 78%, 35% 79%, 9% 63%, 0 33%);
+      background: darken($pink-eye, 10%);
+      @include size(50%, 50%);
+      left: 40%;
+      top: -20%;
+    }
+    .crack-2 {
+      clip-path: polygon(40% 46%, 47% 14%, 100% 6%, 72% 57%, 61% 84%, 41% 100%, 0 100%, 0 56%);
+      background: darken($pink-eye, 10%);
+      @include size(30%, 50%);
+      bottom: 20%;
+      left: -10%;
+    }
+
+    .eye-left-shadow {
+      @include size(25%, 40%);
+      @include pos(20%, 20%);
+      background: darken($green-skin, 20%);
+      border-radius: 50%
+    }
+
+    .eye-left {
+      @include size(20%, 35%);
+      @include pos(22.5%, 22.5%);
+      background: $pink-eye;
+      border-radius: 50%;
+      border: 5px solid darken($green-skin, 30%);
+      z-index: 1;
+    }
+
+    .eye-right {
+      @include size(20%, 35%);
+      @include posR(22.5%, 22.5%);
+      background: $pink-eye;
+      border-radius: 50%;
+      border: 5px solid darken($green-skin, 30%);
+      z-index: 1;
+    }
+
+    .eye-right-shadow {
+      @include size(25%, 40%);
+      @include posR(20%, 20%);
+      background: darken($green-skin, 20%);
+      border-radius: 50%;
+    }
   }
   }
 
@@ -57,4 +169,10 @@ $green-skin: #878E76;
       @include pos(20%, 20%);
       border: 5px solid darken($green-skin, 20%);
     }
+}
+
+@keyframes rotate {
+  0% {transform: rotateY(15deg);}
+  50% {transform: rotateY(-15deg);}
+  100% {transform: rotateY(15deg);}
 }
