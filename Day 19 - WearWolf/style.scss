@@ -1,0 +1,140 @@
+@import "../presets";
+@import url('https://fonts.googleapis.com/css?family=Cinzel:900');
+
+$yellow-moon: #FFD382;
+
+
+.box {
+  @include size(600px, 600px);
+  position: relative;
+  margin: auto;
+  margin-top: 5%;
+
+  #text {
+    @include size(100%, 100%);
+    text-align: center;
+    font-family: Cinzel;
+    font-size: 26pt;
+    top: 60%;
+    color: yellow-moon;
+    text-shadow: 1px 1px 5px darken(black, 50%);
+    z-index: 4;
+  }
+}
+
+.moon {
+  @include size(80%, 80%);
+  @include pos(10%, 10%);
+  background: $yellow-moon;
+  border-radius: 50%;
+  box-shadow: 0px 0px 100px $yellow-moon;
+
+  &:before {
+    content:"";
+    @include size(80%, 80%);
+    @include pos(10%, 10%);
+    background: lighten($yellow-moon, 5%);
+    border-radius: 50%;
+    box-shadow: 0px 0px 100px lighten($yellow-moon, 5%);
+  }
+
+  &:after {
+    content: "";
+    @include size(60%, 60%);
+    @include pos(20%, 20%);
+    background: lighten($yellow-moon, 10%);
+    border-radius: 50%;
+    box-shadow: 0px 0px 100px lighten($yellow-moon, 10%);
+  }
+}
+
+.cutoff {
+  @include size(100%, 50%);
+  bottom: 0%;
+  background: white;
+  border-top: 10px solid black;
+  z-index: 2;
+}
+
+.cliff {
+  @include size(100%, 100%);
+  top: 25%;
+  left: 30%;
+}
+
+.cliff-main {
+  clip-path: polygon(21% 30%, 49% 39%, 80% 55%, 100% 70%, 100% 100%, 19% 100%, 25% 70%, 0 41%);
+  background: black;
+  @include size(40%, 30%);
+  z-index: 1;
+}
+
+.cliff-left {
+  clip-path: polygon(21% 0, 100% 38%, 82% 100%, 19% 100%, 0% 38%);
+  background: lighten(black, 10%);
+  @include size(20%, 19%);
+  top: 11%;
+}
+
+.cliff-right {
+  clip-path: polygon(20% 48%, 41% 40%, 100% 100%, 50% 100%, 0 100%, 0 35%);
+  background: lighten(black, 10%);
+  @include size(50%, 25%);
+  left: 10%;
+  top: 5%;
+}
+
+.quote {
+  @include size(30%, 20%);
+  @include pos(5%, 5%);
+  background: white;
+  border: 5px solid black;
+  border-radius: 10px;
+  overflow: visible;
+
+  #howl {
+    @include size(100%, 100%);
+    text-align: center;
+    font-size: 36px;
+    font-family: Cinzel;
+    top: 30%;
+  }
+
+  &:before {
+    content:"";
+    left: -25px;
+    position: absolute;
+    width:0;
+    height:0;
+    border-bottom: 25px solid transparent;  /* left arrow slant */
+  	border-top: 25px solid transparent; /* right arrow slant */
+  	border-right: 25px solid black; /* bottom, add background color here */
+    bottom: 0%;
+  }
+}
+
+// .hex {
+//   @include size(60%, 60%);
+//   @include pos(25%, 25%);
+//
+//
+//   .square {
+//     @include size(80%, 80%);
+//     background: red;
+//
+//     &:nth-child(1) {
+//       transform: rotate(-30deg);
+//       top: 4.5%;
+//     }
+//
+//     &:nth-child(2) {
+//       left: 15%;
+//     }
+//
+//     &:nth-child(3) {
+//       left:30%;
+//       transform: rotate(30deg);
+//       top: 4.5%;
+//     }
+//   }
+// }
