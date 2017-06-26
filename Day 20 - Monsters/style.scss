@@ -1,0 +1,132 @@
+@import "../presets";
+@import url("https://fonts.googleapis.com/css?family=Erica+One");
+
+$green-mike: #A7DA3D;
+$green-shade: #407219;
+
+.box {
+  @include size(600px, 600px);
+  position: relative;
+  margin: auto;
+  margin-top: 5%;
+  background: $green-mike;
+  border-radius: 30%;
+}
+
+.title {
+  @include size(100%, 30%);
+
+  #text {
+    @include size(100%, 100%);
+    font-size: 25pt;
+    font-family: Erica One;
+    text-align: center;
+    top: 20%;
+  }
+
+  #inc {@include size(100%, 100%);
+    font-size: 50pt;
+    font-family: Erica One;
+    text-align: center;
+    top: 30%;
+  }
+}
+
+.eye {
+  @include size(40%, 40%);
+  @include pos(30%, 30%);
+  border: 5px solid $green-shade;
+  border-radius: 50%;
+  background: transparent;
+  overflow: hidden;
+
+  .lid {
+    @include size(100%, 100%);
+    background: $green-mike;
+    animation: blink 5s linear 0s infinite;
+    border-radius: 50%;
+    z-index: 2;
+  }
+
+  .white-space {
+    @include size(100%, 100%);
+    background: white;
+    border-radius: 50%;
+  }
+
+  .wrapper {
+    @include size(40%, 40%);
+    @include pos(30%, 30%);
+    animation: lookY 7.5s ease-in-out 0s infinite;
+  }
+
+  .pupil {
+    @include size(100%, 100%);
+    // @include pos(30%, 30%);
+    background: #367958;
+    border-radius: 50%;
+    z-index: 1;
+    animation: lookX 10s ease-in-out 0s infinite;
+    box-shadow: inset 0px 0px 5px white;
+
+    &:before {
+      content: "";
+      border-radius: 50%;
+      @include size(60%, 60%);
+      @include pos(20%, 20%);
+      background: black;
+      box-shadow: inset 0px 0px 5px #367958;
+    }
+  }
+}
+
+@keyframes blink {
+  0% {
+    transform: translateY(0px);
+
+  }
+
+  25%, 50% {
+    transform: translateY(-100%);
+  }
+
+  75%, 100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes lookX {
+  0% {
+    transform: translateX(0);
+  }
+
+  25%, 50% {
+    transform: translateX(60%);
+  }
+
+  60%, 80% {
+    transform: translateX(-30%);
+  }
+
+  85%, 100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes lookY {
+  0% {
+    transform: translateY(0);
+  }
+
+  40%, 60% {
+    transform: translateY(75%);
+  }
+
+  60%, 75% {
+    transform: translateY(-60%);
+  }
+
+  90%, 100% {
+    transform: translateY(0);
+  }
+}
