@@ -1,0 +1,157 @@
+@import "../presets";
+
+$outline: red;
+$inner: red;
+$tan-skin:#F9EBDF;
+
+.box {
+  @include size(100px, 140px);
+  // background: blue;
+}
+
+.head {
+  @include size(20px, 120px);
+  background: $tan-skin;
+  box-shadow:
+  20px 0px $tan-skin,
+  40px 0px $tan-skin,
+  60px 0px $tan-skin,
+  80px 0px $tan-skin,
+  20px 10px $tan-skin,
+  40px 10px $tan-skin,
+  60px 10px $tan-skin;
+}
+
+.eyes {
+  @include size(10px, 10px);
+  box-shadow:
+  //left
+  20px 40px black,
+  20px 50px black,
+  20px 60px black,
+  30px 40px lighten(black, 30%),
+  30px 50px lighten(black, 30%),
+  30px 60px black,
+
+  //right
+  60px 40px black,
+  60px 50px black,
+  60px 60px black,
+  70px 40px lighten(black, 30%),
+  70px 50px lighten(black, 30%),
+  70px 60px black;
+
+  animation: blink 4s linear 0s infinite;
+
+}
+
+.mouth {
+  @include size(10px, 10px);
+  box-shadow:
+  //top
+
+  45px 90px darken($tan-skin, 10%),
+  55px 90px darken($tan-skin, 10%),
+  60px 90px darken($tan-skin, 15%),
+
+
+  //bottom
+  // 60px 95px darken($tan-skin, 10%),
+  // 50px 95px darken($tan-skin, 10%),
+  // 40px 95px darken($tan-skin, 10%),
+}
+
+.hair-wide {
+  @include size(100px, 20px);
+  background: black;
+}
+
+.hair-specific {
+  @include size(10px, 10px);
+  box-shadow:
+  //left sizdeburn
+  0px 20px black,
+  0px 30px black,
+  5px 15px black,
+
+  //right sideburn
+  90px 20px black,
+  90px 30px black,
+  85px 15px black,
+
+  //swivel
+  40px 20px black,
+  45px 25px black,
+}
+
+.skin {
+  @include size(10px, 10px);
+  box-shadow:
+  0px 110px white,
+  90px 110px white,
+  -5px 105px white,
+  95px 105px white,
+  15px 125px white,
+  75px 125px white,
+  5px 115px white,
+  85px 115px white,
+}
+
+@keyframes blink {
+  0%, 20% {
+    box-shadow:
+    //left
+    20px 40px black,
+    20px 50px black,
+    20px 60px black,
+    30px 40px lighten(black, 30%),
+    30px 50px lighten(black, 30%),
+    30px 60px black,
+
+    //right
+    60px 40px black,
+    60px 50px black,
+    60px 60px black,
+    70px 40px lighten(black, 30%),
+    70px 50px lighten(black, 30%),
+    70px 60px black;
+  }
+
+  25%, 30% {
+    box-shadow:
+    //left
+    20px 40px darken($tan-skin, 10%),
+    20px 50px darken($tan-skin, 10%),
+    20px 60px darken($tan-skin, 10%),
+    30px 40px darken($tan-skin, 10%),
+    30px 50px darken($tan-skin, 10%),
+    30px 60px darken($tan-skin, 10%),
+
+    //right
+    60px 40px darken($tan-skin, 10%),
+    60px 50px darken($tan-skin, 10%),
+    60px 60px darken($tan-skin, 10%),
+    70px 40px darken($tan-skin, 10%),
+    70px 50px darken($tan-skin, 10%),
+    70px 60px darken($tan-skin, 10%);
+  }
+
+  32%, 100% {
+    box-shadow:
+    //left
+    20px 40px black,
+    20px 50px black,
+    20px 60px black,
+    30px 40px lighten(black, 30%),
+    30px 50px lighten(black, 30%),
+    30px 60px black,
+
+    //right
+    60px 40px black,
+    60px 50px black,
+    60px 60px black,
+    70px 40px lighten(black, 30%),
+    70px 50px lighten(black, 30%),
+    70px 60px black;
+  }
+}
