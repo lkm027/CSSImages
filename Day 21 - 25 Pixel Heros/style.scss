@@ -3,102 +3,28 @@
 $outline: red;
 $inner: red;
 $tan-skin:#F9EBDF;
+$ring-outline: green;
+$green-symbol: darken(green, 10%);
+$grey-background: lighten(grey, 10%);
 
-.box {
+.superman {
   @include size(100px, 140px);
-  // background: blue;
-}
 
-.head {
-  @include size(20px, 120px);
-  background: $tan-skin;
-  box-shadow:
-  20px 0px $tan-skin,
-  40px 0px $tan-skin,
-  60px 0px $tan-skin,
-  80px 0px $tan-skin,
-  20px 10px $tan-skin,
-  40px 10px $tan-skin,
-  60px 10px $tan-skin;
-}
+  .head {
+    @include size(20px, 120px);
+    background: $tan-skin;
+    box-shadow:
+    20px 0px $tan-skin,
+    40px 0px $tan-skin,
+    60px 0px $tan-skin,
+    80px 0px $tan-skin,
+    20px 10px $tan-skin,
+    40px 10px $tan-skin,
+    60px 10px $tan-skin;
+  }
 
-.eyes {
-  @include size(10px, 10px);
-  box-shadow:
-  //left
-  20px 40px black,
-  20px 50px black,
-  20px 60px black,
-  30px 40px lighten(black, 30%),
-  30px 50px lighten(black, 30%),
-  30px 60px black,
-
-  //right
-  60px 40px black,
-  60px 50px black,
-  60px 60px black,
-  70px 40px lighten(black, 30%),
-  70px 50px lighten(black, 30%),
-  70px 60px black;
-
-  animation: blink 4s linear 0s infinite;
-
-}
-
-.mouth {
-  @include size(10px, 10px);
-  box-shadow:
-  //top
-
-  45px 90px darken($tan-skin, 10%),
-  55px 90px darken($tan-skin, 10%),
-  60px 90px darken($tan-skin, 15%),
-
-
-  //bottom
-  // 60px 95px darken($tan-skin, 10%),
-  // 50px 95px darken($tan-skin, 10%),
-  // 40px 95px darken($tan-skin, 10%),
-}
-
-.hair-wide {
-  @include size(100px, 20px);
-  background: black;
-}
-
-.hair-specific {
-  @include size(10px, 10px);
-  box-shadow:
-  //left sizdeburn
-  0px 20px black,
-  0px 30px black,
-  5px 15px black,
-
-  //right sideburn
-  90px 20px black,
-  90px 30px black,
-  85px 15px black,
-
-  //swivel
-  40px 20px black,
-  45px 25px black,
-}
-
-.skin {
-  @include size(10px, 10px);
-  box-shadow:
-  0px 110px white,
-  90px 110px white,
-  -5px 105px white,
-  95px 105px white,
-  15px 125px white,
-  75px 125px white,
-  5px 115px white,
-  85px 115px white,
-}
-
-@keyframes blink {
-  0%, 20% {
+  .eyes {
+    @include size(10px, 10px);
     box-shadow:
     //left
     20px 40px black,
@@ -115,43 +41,325 @@ $tan-skin:#F9EBDF;
     70px 40px lighten(black, 30%),
     70px 50px lighten(black, 30%),
     70px 60px black;
+
+    animation: blink 4s linear 0s infinite;
+
   }
 
-  25%, 30% {
+  .mouth {
+    @include size(10px, 10px);
     box-shadow:
-    //left
-    20px 40px darken($tan-skin, 10%),
-    20px 50px darken($tan-skin, 10%),
-    20px 60px darken($tan-skin, 10%),
-    30px 40px darken($tan-skin, 10%),
-    30px 50px darken($tan-skin, 10%),
-    30px 60px darken($tan-skin, 10%),
+    //top
 
-    //right
-    60px 40px darken($tan-skin, 10%),
-    60px 50px darken($tan-skin, 10%),
-    60px 60px darken($tan-skin, 10%),
-    70px 40px darken($tan-skin, 10%),
-    70px 50px darken($tan-skin, 10%),
-    70px 60px darken($tan-skin, 10%);
+    45px 90px darken($tan-skin, 10%),
+    55px 90px darken($tan-skin, 10%),
+    60px 90px darken($tan-skin, 15%),
+
+
+    //bottom
+    // 60px 95px darken($tan-skin, 10%),
+    // 50px 95px darken($tan-skin, 10%),
+    // 40px 95px darken($tan-skin, 10%),
   }
 
-  32%, 100% {
+  .hair-wide {
+    @include size(100px, 20px);
+    background: black;
+  }
+
+  .hair-specific {
+    @include size(10px, 10px);
     box-shadow:
+    //left sizdeburn
+    0px 20px black,
+    0px 30px black,
+    5px 15px black,
+
+    //right sideburn
+    90px 20px black,
+    90px 30px black,
+    85px 15px black,
+
+    //swivel
+    40px 20px black,
+    45px 25px black,
+  }
+
+  .skin {
+    @include size(10px, 10px);
+    box-shadow:
+    0px 110px white,
+    90px 110px white,
+    -5px 105px white,
+    95px 105px white,
+    15px 125px white,
+    75px 125px white,
+    5px 115px white,
+    85px 115px white,
+  }
+
+  @keyframes blink {
+    0%, 20% {
+      box-shadow:
+      //left
+      20px 40px black,
+      20px 50px black,
+      20px 60px black,
+      30px 40px lighten(black, 30%),
+      30px 50px lighten(black, 30%),
+      30px 60px black,
+
+      //right
+      60px 40px black,
+      60px 50px black,
+      60px 60px black,
+      70px 40px lighten(black, 30%),
+      70px 50px lighten(black, 30%),
+      70px 60px black;
+    }
+
+    25%, 30% {
+      box-shadow:
+      //left
+      20px 40px darken($tan-skin, 10%),
+      20px 50px darken($tan-skin, 10%),
+      20px 60px darken($tan-skin, 10%),
+      30px 40px darken($tan-skin, 10%),
+      30px 50px darken($tan-skin, 10%),
+      30px 60px darken($tan-skin, 10%),
+
+      //right
+      60px 40px darken($tan-skin, 10%),
+      60px 50px darken($tan-skin, 10%),
+      60px 60px darken($tan-skin, 10%),
+      70px 40px darken($tan-skin, 10%),
+      70px 50px darken($tan-skin, 10%),
+      70px 60px darken($tan-skin, 10%);
+    }
+
+    32%, 100% {
+      box-shadow:
+      //left
+      20px 40px black,
+      20px 50px black,
+      20px 60px black,
+      30px 40px lighten(black, 30%),
+      30px 50px lighten(black, 30%),
+      30px 60px black,
+
+      //right
+      60px 40px black,
+      60px 50px black,
+      60px 60px black,
+      70px 40px lighten(black, 30%),
+      70px 50px lighten(black, 30%),
+      70px 60px black;
+    }
+  }
+}
+
+.greenLatern {
+  @include size(150px, 150px);
+  @include pos(200px, 10px);
+
+  .glow {
+    @include size(150px, 150px);
+    background: lighten($ring-outline, 20%);
+    opacity: 0.25;
+    animation: glow 2.5s linear 0s infinite;
+    z-index: 1;
+  }
+
+  .ring-outline {
+    @include size(10px, 10px);
+    z-index: 2;
+    box-shadow:
+    //top
+    60px 10px $ring-outline,
+    70px 10px $ring-outline,
+    80px 10px $ring-outline,
+
+    //top left and mid
+    // 50px 20px green,
+    // 40px 30px green,
+    // 30px 40px green,
+    // 20px 50px green,
+    // 10px 60px green,
+    // 10px 70px green,
+    // 10px 80px green,
+
+    50px 10px $ring-outline,
+    40px 20px $ring-outline,
+    30px 20px $ring-outline,
+    20px 40px $ring-outline,
+    20px 30px $ring-outline,
+    10px 50px $ring-outline,
+    10px 60px $ring-outline,
+    10px 70px $ring-outline,
+    10px 80px $ring-outline,
+
+    //bottom left
+    10px 90px $ring-outline,
+    20px 100px $ring-outline,
+    20px 110px $ring-outline,
+    30px 120px $ring-outline,
+    40px 120px $ring-outline,
+    50px 130px $ring-outline,
+    60px 130px $ring-outline,
+
+
+    //top right and mid
+
+    90px 10px $ring-outline,
+    100px 20px $ring-outline,
+    110px 20px $ring-outline,
+    120px 30px $ring-outline,
+    120px 40px $ring-outline,
+    130px 50px $ring-outline,
+    130px 60px $ring-outline,
+    130px 70px $ring-outline,
+    130px 80px $ring-outline,
+
+    //bottom right
+    130px 90px $ring-outline,
+    120px 100px $ring-outline,
+    120px 110px $ring-outline,
+    110px 120px $ring-outline,
+    100px 120px $ring-outline,
+    90px 130px $ring-outline,
+    80px 130px $ring-outline,
+
+    //bottom middle
+    70px 130px $ring-outline;
+  }
+
+  .symbol {
+    @include size(10px, 10px);
+    z-index: 2;
+    box-shadow:
+    //top
+    30px 30px $green-symbol,
+    40px 30px $green-symbol,
+    50px 30px $green-symbol,
+    60px 30px $green-symbol,
+    70px 30px $green-symbol,
+    80px 30px $green-symbol,
+    90px 30px $green-symbol,
+    100px 30px $green-symbol,
+    110px 30px $green-symbol,
+
     //left
-    20px 40px black,
-    20px 50px black,
-    20px 60px black,
-    30px 40px lighten(black, 30%),
-    30px 50px lighten(black, 30%),
-    30px 60px black,
+    50px 40px $green-symbol,
+    // 40px 40px $green-symbol,
+    40px 50px $green-symbol,
+    30px 60px $green-symbol,
+    30px 70px $green-symbol,
+    30px 80px $green-symbol,
+    40px 90px $green-symbol,
+    // 40px 100px $green-symbol,
+    50px 100px $green-symbol,
+
+    60px 40px $green-symbol,
+    50px 50px $green-symbol,
+    40px 60px $green-symbol,
+    40px 80px $green-symbol,
+    50px 90px $green-symbol,
+    60px 100px $green-symbol,
 
     //right
-    60px 40px black,
-    60px 50px black,
-    60px 60px black,
-    70px 40px lighten(black, 30%),
-    70px 50px lighten(black, 30%),
-    70px 60px black;
+    90px 40px $green-symbol,
+    // 100px 40px $green-symbol,
+    100px 50px $green-symbol,
+    110px 60px $green-symbol,
+    110px 70px $green-symbol,
+    110px 80px $green-symbol,
+    100px 90px $green-symbol,
+    // 100px 100px $green-symbol,
+    90px 100px $green-symbol,
+
+    80px 40px $green-symbol,
+    90px 50px $green-symbol,
+    100px 60px $green-symbol,
+    100px 80px $green-symbol,
+    90px 90px $green-symbol,
+    80px 100px $green-symbol,
+
+    //bot
+    30px 110px $green-symbol,
+    40px 110px $green-symbol,
+    50px 110px $green-symbol,
+    60px 110px $green-symbol,
+    70px 110px $green-symbol,
+    80px 110px $green-symbol,
+    90px 110px $green-symbol,
+    100px 110px $green-symbol,
+    110px 110px $green-symbol,
+  }
+
+  .grey-tp {
+    @include size(90px, 110px);
+    @include pos(30px, 20px);
+    background: $grey-background;
+  }
+
+  .grey-lr {
+    @include size(110px, 90px);
+    @include pos(20px, 30px);
+    background: $grey-background;
+  }
+
+  .hide {
+    @include size(10px, 10px);
+    background: white;
+    z-index: 2;
+    box-shadow:
+    //top right
+    140px 0px white,
+    130px 0px white,
+    120px 0px white,
+    110px 0px white,
+    140px 10px white,
+    140px 20px white,
+    140px 30px white,
+
+    //top left
+    10px 0px white,
+    20px 0px white,
+    30px 0px white,
+    0px 10px white,
+    0px 20px white,
+    0px 30px white,
+
+    //bot right
+    140px 140px white,
+    130px 140px white,
+    120px 140px white,
+    110px 140px white,
+    140px 130px white,
+    140px 120px white,
+    140px 110px white,
+
+    //bot left
+    0px 140px white,
+    10px 140px white,
+    20px 140px white,
+    30px 140px white,
+    0px 130px white,
+    0px 120px white,
+    0px 110px white,
+
+
+  }
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0.25;
+  }
+
+  50% {opacity: 0;}
+
+  100% {
+    opacity: 0.25;
   }
 }
