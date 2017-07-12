@@ -363,3 +363,66 @@ $grey-background: lighten(grey, 10%);
     opacity: 0.25;
   }
 }
+
+.wolverine {
+  @include size(150px, 150px);
+  @include pos(400px, 10px);
+
+  $silver-blade: #C1C1C1;
+  $lightSilver: lighten($silver-blade, 20%);
+  $darkSilver: darken($silver-blade, 20%);
+
+  //dripping blood or scratches
+  // $silver-blade: #D12310;
+  // $lightSilver: lighten($silver-blade, 20%);
+  // $darkSilver: darken($silver-blade, 20%);
+
+  .blade {
+    @include size(10px, 10px);
+    transform: rotate(-10deg) scale(0.9) ;
+    box-shadow:
+    //bottom row
+      // 10px 120px $silver-blade,
+      20px 110px $lightSilver,
+      30px 100px $lightSilver,
+      40px 90px $lightSilver,
+      50px 80px $lightSilver,
+      60px 70px $lightSilver,
+      70px 60px $lightSilver,
+      80px 50px $lightSilver,
+      90px 40px $lightSilver,
+
+      // 10px 110px $silver-blade,
+      20px 100px $silver-blade,
+      30px 90px $silver-blade,
+      40px 80px $silver-blade,
+      50px 70px $silver-blade,
+      60px 60px $silver-blade,
+      70px 50px $silver-blade,
+      80px 40px $silver-blade,
+
+
+      10px 100px $darkSilver,
+      20px 90px $darkSilver,
+      30px 80px $darkSilver,
+      40px 70px $darkSilver,
+      50px 60px $darkSilver,
+      60px 50px $darkSilver,
+      70px 40px $darkSilver,
+      80px 30px $darkSilver,
+      90px 30px $darkSilver;
+
+      &:nth-child(1) {
+        @include pos(-20px, 20px);
+      }
+      &:nth-child(2) {
+        @include pos(15px, 20px);
+      }
+      &:nth-child(3) {
+        @include pos(50px, 20px);
+      }
+  }
+
+
+
+}
