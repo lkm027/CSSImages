@@ -422,7 +422,32 @@ $grey-background: lighten(grey, 10%);
         @include pos(50px, 20px);
       }
   }
+}
 
+.ironman {
+  @include size(150px, 150px);
+  @include pos(600px, 10px);
+  background: black;
 
+  $red: red;
 
+  .block {
+    @include size(20px, 20px);
+    box-shadow:
+    50px 130px $red,
+    60px 130px $red,
+    70px 130px $red,
+
+    30px 120px $red,
+    10px 110px $red,
+
+    90px 120px $red,
+    110px 110px $red,
+  }
+
+  .single {
+    @include size(10px, 10px);
+    box-shadow:
+    20px 110px blue,
+  }
 }
