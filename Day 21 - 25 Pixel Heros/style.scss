@@ -427,27 +427,111 @@ $grey-background: lighten(grey, 10%);
 .ironman {
   @include size(150px, 150px);
   @include pos(600px, 10px);
-  background: black;
 
   $red: red;
+  $dark-red: darken($red, 5%);
+  $gold: #DBC869;
+  $dark-gold: darken($gold, 5%);
+  $white-eye: darken(white, 10%);
+  $white-dark: darken(white, 10%);
+  // $mouth: darken(white, 30%);
 
   .block {
     @include size(20px, 20px);
+    z-index: 2;
     box-shadow:
     50px 130px $red,
-    60px 130px $red,
-    70px 130px $red,
+    60px 130px $dark-red,
+    70px 130px $dark-red,
 
     30px 120px $red,
     10px 110px $red,
 
-    90px 120px $red,
-    110px 110px $red,
+    90px 120px $dark-red,
+    110px 110px $dark-red,
+
+    //top left
+    10px 20px $red,
+    30px 10px $red,
+    50px 10px $red,
+    70px 10px $dark-red,
+
+    //top right
+    110px 20px $dark-red,
+    90px 10px $dark-red,
+
+    //top middle
+    60px 30px $dark-red,
   }
 
   .single {
     @include size(10px, 10px);
+      z-index: 2;
     box-shadow:
-    20px 110px blue,
+    //left side
+    10px 100px $red,
+    10px 90px $red,
+    10px 80px $red,
+    10px 70px $red,
+    10px 60px $red,
+    10px 50px $red,
+    10px 40px $red,
+    10px 30px $red,
+
+    60px 30px $red,
+    60px 40px $red,
+
+    //red side
+    120px 100px $dark-red,
+    120px 90px $dark-red,
+    120px 80px $dark-red,
+    120px 70px $dark-red,
+    120px 60px $dark-red,
+    120px 50px $dark-red,
+    120px 40px $dark-red,
+    120px 30px $dark-red,
+  }
+
+  .face {
+    .left {
+      @include size(30px, 30px);
+      box-shadow:
+      20px 30px $gold,
+      20px 60px $gold,
+      20px 90px $gold,
+      40px 30px $gold,
+      40px 60px $gold,
+      40px 90px $gold,
+      40px 100px $gold,
+
+      90px 30px $dark-gold,
+      90px 60px $dark-gold,
+      90px 90px $dark-gold,
+      70px 30px $dark-gold,
+      70px 60px $dark-gold,
+      70px 90px $dark-gold,
+      70px 100px $dark-gold,
+    }
+  }
+
+  .eye {
+    @include size(10px, 10px);
+    box-shadow:
+    //left
+    40px 60px $white-eye,
+    50px 60px $white-eye,
+
+    //right
+    80px 60px $white-dark,
+    90px 60px $white-dark,
+  }
+
+  .mouth {
+    @include size(10px, 10px);
+    box-shadow:
+    55px 100px $white-eye,
+    60px 100px $white-eye,
+    70px 100px $white-dark,
+    75px 100px $white-dark,
   }
 }
