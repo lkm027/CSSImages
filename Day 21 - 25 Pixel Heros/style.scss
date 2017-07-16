@@ -535,3 +535,94 @@ $grey-background: lighten(grey, 10%);
     75px 100px $white-dark,
   }
 }
+
+.captain {
+  @include size(150px, 150px);
+  @include pos(800px, 10px);
+
+  $red: red;
+  $blue: blue;
+  $silver: lighten(#C0C0C0, 10%);
+  .outline {
+    @include size(100px, 100px);
+    @include pos(25px, 25px);
+
+    .vert {
+      @include size(80px, 100px);
+      background: $red;
+      left: 10px;
+    }
+
+    .hor {
+      @include size(100px, 80px);
+      background: $red;
+      top: 10px;
+    }
+  }
+
+  .second {
+    @include size(80px, 80px);
+    @include pos(35px, 35px);
+
+    .vert {
+      @include size(60px, 80px);
+      background: $silver;
+      left: 10px;
+    }
+
+    .hor {
+      @include size(80px, 60px);
+      background: $silver;
+      top: 10px;
+    }
+  }
+
+  .third {
+    @include size(60px, 60px);
+    @include pos(45px, 45px);
+
+    .vert {
+      @include size(40px, 60px);
+      background: $red;
+      left: 10px;
+    }
+
+    .hor {
+      @include size(60px, 40px);
+      background: $red;
+      top: 10px;
+    }
+  }
+
+  .fourth {
+    @include size(40px, 40px);
+    @include pos(55px, 55px);
+
+    .vert {
+      @include size(20px, 40px);
+      background: $blue;
+      left: 10px;
+    }
+
+    .hor {
+      @include size(40px, 20px);
+      background: $blue;
+      top: 10px;
+    }
+  }
+
+  .star {
+    @include size(20px, 20px);
+    @include pos(65px, 65px);
+    background: $silver;
+
+    &:before {
+      content: "";
+      @include size(20px, 20px);
+      background: $silver;
+      transform: rotate(45deg);
+
+    }
+  }
+
+}
